@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.c++": "cpp",
+        "move": "cpp"
+    }
+}

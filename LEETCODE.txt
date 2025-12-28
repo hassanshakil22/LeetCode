@@ -1,0 +1,746 @@
+	LEETCODE QUESTION NO:07
+
+#include <climits>
+
+class Solution {
+public:
+    int reverse(int x) {
+        long reversed = 0;
+        while (x != 0) {
+            reversed = reversed * 10 + (x % 10);
+            
+            // Check for overflow before casting to int
+            if (reversed > INT_MAX || reversed < INT_MIN) {
+                return 0;  
+            }
+            
+            x /= 10;
+        }
+        return (int)reversed;
+    }
+};
+
+QUESTION NO:50
+
+#include<cmath>
+class Solution {
+public:
+    double myPow(double x, int n) {
+        return pow(x,n);
+    }
+};
+
+QUESTION NO:326
+
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if (n <= 0) {
+            return false;
+        }
+
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+        
+        return n == 1; 
+    }
+};
+
+
+QUESTION NO:29
+
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        // Edge case: INT_MIN / -1 leads to overflow
+        if (dividend == INT_MIN && divisor == -1) {
+            return INT_MAX;
+        }
+        
+        return dividend / divisor; // Normal division
+    }
+};
+
+QUESTION NO:09
+
+class Solution(object):
+    def isPalindrome(self, x):
+        if x<0:
+            return False
+        else:
+            str_1 =str(x)
+            str_3=str_1[::-1]
+            if str_1==str_3 :
+                return True
+            else:
+                return False 
+
+QUESTION NO:1480
+
+#include <vector>
+
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        vector<int> result(nums.size());
+        int sum = 0;
+        for (size_t i = 0; i < nums.size(); i++) {
+            sum += nums[i];
+            result[i] = sum;
+        }
+        return result;
+    }
+};
+
+QUESTION NO:2180
+
+class Solution {
+public:
+    int countEven(int num) {
+        int sum=0,count=0;
+        for(int i=1;i<=num;i++){
+            int temp=i;
+            while(temp>0){
+                sum=temp%10;
+                temp/=10;
+            }
+        if(sum%2==0){
+            count++;
+        }
+        }
+        return count;
+
+    }
+};
+
+QUESTION NO:344
+
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        reverse(s.begin(), s.end()); }   
+};
+
+QUESTION NO:1822
+
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        int sign = 1; 
+        
+        for (int num : nums) {
+            if (num == 0) return 0; 
+            if (num < 0) sign *= -1; 
+        }
+        
+        return sign;
+    }
+};
+
+QUESTION NO:977
+
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> result(n);
+        for(int i = 0; i < n; i++) {
+            result[i] = nums[i] * nums[i];
+        }
+
+        sort(result.begin(), result.end());
+
+        return result;
+    }
+};
+
+
+QUESTION NO: 2529
+
+class Solution {
+public:
+    int maximumCount(vector<int>& nums) {
+        int count_even=0,count_odd=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>0){
+                count_even++;
+            }
+            else if(nums[i]<0){
+                count_odd++;
+            }
+        }
+        return max(count_odd,count_even);
+    }
+};
+
+QUESTION NO:2469
+
+class Solution {
+public:
+    vector<double> convertTemperature(double celsius) {
+        return {(celsius+273.15),(celsius*1.80+32.00)};
+        
+    }
+};
+
+QUESTION NO:1662
+
+class Solution {
+public:
+    bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+    string s1, s2;
+    int n1=word1.size();
+    int n2=word2.size();
+
+        
+        for (int i=0;i<n1;i++){ 
+            s1 += word1[i];}
+        
+        for (int i=0;i<n2;i++){ 
+            s2 += word2[i];}
+    if(s1==s2){
+        return true;
+    }    
+    else{
+        return false;
+    }
+}   
+};
+
+QUESTION NO:2006
+
+class Solution {
+public:
+    double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
+        int n1 = nums1.size();
+        int n2 = nums2.size();
+        int n = n1 + n2;
+        vector<int> nums(n);
+        
+
+        for (int i = 0; i < n1; i++) {
+            nums[i] = nums1[i];
+        }
+        for (int i = 0; i < n2; i++) {
+            nums[i + n1] = nums2[i];
+        }
+
+        sort(nums.begin(), nums.end());
+        if (n % 2 == 0) { 
+            return (nums[n / 2 - 1] + nums[n / 2]) / 2.0;
+        } else {  
+            return nums[n / 2];
+        }
+    }
+};
+
+QUESTION NO:371
+
+class Solution {
+public:
+    int getSum(int a, int b) {
+        int sum=a+b;
+        return sum;
+        
+    }
+};
+
+QUESTION NO: 1295
+
+class Solution {
+public:
+    int findNumbers(vector<int>& nums) {
+        int count=0,total_count=0;
+        for(int i=0;i<nums.size();i++){
+            int temp=nums[i];
+            count=0;
+            while(temp!=0){
+                int x=temp%10;
+                count++;
+                temp=temp/10;
+            }
+            if(count%2==0){
+                total_count++;
+            }
+            
+        }
+        return total_count;
+        
+    }
+};
+
+QUESTION NO:1903
+
+class Solution {
+public:
+    string largestOddNumber(string num) {
+        int lastOddIndex = -1;
+
+        for (int i = 0; i < num.size(); i++) {
+            int digit = num[i] - '0';
+            if (digit % 2 != 0) {
+                lastOddIndex = i; 
+            }
+        }
+        if (lastOddIndex != -1) {
+            return num.substr(0, lastOddIndex + 1); 
+        } else {
+            return "";
+        }
+    }
+};
+
+QUESTION NO:2235
+
+class Solution {
+public:
+    int sum(int num1, int num2) {
+        return (num1+num2);
+        
+    }
+};
+
+QUESTION NO: 27
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int index = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != val) {
+                nums[index] = nums[i];
+                index++;
+            }
+        }
+        return index;
+    }
+};
+
+QUESTION NO:442
+
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+     vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        int num = abs(nums[i]);
+        int index = num - 1; 
+        if (nums[index] < 0) {
+            result.push_back(num);
+        } else {
+            nums[index] = -nums[index];
+        }
+    }
+    return result;   
+    }
+};
+
+QUESTION NO: 26
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.empty()) {
+        return 0;  // No elements in the array
+    }
+
+    int x = 0;
+    int unique = 0;
+    for (x = 1;x< nums.size();x++) {
+        if (nums[x] != nums[unique]) {
+        unique++;
+        nums[unique] = nums[x];
+        }
+    }
+    return unique + 1;
+    }
+};
+
+QUESTION NO: 35
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+    for (int i = 0; i < nums.size(); i++) {
+        if (nums[i] == target) {
+            return i;
+        }
+        if (nums[i] > target) {
+            return i;
+        }
+    }
+    return nums.size();
+    }
+};
+
+QUESTION NO:217
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for (int i = 1;i< nums.size();i++){
+        if (nums[i] == nums[i - 1]) {
+            return true;
+        }
+    }
+    return false;
+    }
+};
+
+QUESTION NO:121
+
+class Solution {
+public:
+int maxProfit(vector<int>& prices) {
+    int minPrice = INT_MAX;  
+    int maxProfit = 0;  
+    for (int i = 0; i < prices.size(); ++i) {
+        int price = prices[i];
+        minPrice = min(minPrice, price);
+        int profit = price - minPrice;
+        maxProfit = max(maxProfit, profit);
+    }
+
+    return maxProfit;
+}
+};
+
+QUESTION NO: 171
+
+class Solution {
+public:
+    int titleToNumber(string columnTitle) {
+        int result = 0;
+    for (char c : columnTitle) {
+        result = result * 26 + (c - 'A' + 1);
+    }
+    return result;
+    }
+};
+
+QUESTION NO:48
+
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+    int n = matrix.size();
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            swap(matrix[i][j], matrix[j][i]); 
+        }
+    }
+    for (int i = 0; i < n; ++i) {
+        reverse(matrix[i].begin(), matrix[i].end()); // Reverse the row
+    }
+    }
+};
+
+QUESTION NO:11
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        int left = 0;
+        int right = height.size() - 1;
+        int max_area = 0;
+        while (left < right) {
+            int current_area = min(height[left], height[right]) * (right - left);
+            max_area = max(max_area, current_area);
+            if (height[left] < height[right]) {
+                ++left;
+            } else {
+                --right;
+            }
+        }
+        return max_area;
+    }
+};
+
+QUESTION NO:88
+
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    int i = m - 1;
+    int j = n - 1;
+    int k = m + n - 1;
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } else {
+            nums1[k] = nums2[j];
+            j--;
+        }
+        k--;
+    }
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
+    }
+};
+
+QUESTION NO:1572
+
+class Solution {
+public:
+    int diagonalSum(vector<vector<int>>& mat) {
+      int n = mat.size();
+        int sum = 0;
+        for (int i = 0; i < n; ++i) {
+            sum += mat[i][i];
+            sum += mat[i][n - 1 - i];
+        }
+        if (n % 2 == 1) {
+            sum -= mat[n / 2][n / 2];
+        }
+        return sum;  
+    }
+};
+
+QUESTION NO:392
+
+class Solution {
+public:
+    bool isSubsequence(string s, string t) {
+    int i = 0, j = 0;
+    while (i < s.length() && j < t.length()) {
+        if (s[i] == t[j]) {
+            i++;
+        }
+        j++;
+    }
+    return i == s.length();
+    }
+};
+
+QUESTION NO:120
+
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        for (int row=triangle.size() - 2;row >= 0;row--) {
+        for (int col = 0; col <= row; col++){
+            triangle[row][col] += min(triangle[row + 1][col], triangle[row + 1][col + 1]);
+        }
+    }
+    return triangle[0][0];
+    }
+};
+
+QUESTION NO:223
+
+class Solution {
+public:
+    int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+        
+        int area1 = (C - A) * (D - B);
+        int area2 = (G - E) * (H - F);
+        
+        int overlap_width = max(0, min(C, G) - max(A, E));
+        int overlap_height = max(0, min(D, H) - max(B, F));
+        
+        int overlap_area = overlap_width * overlap_height;
+        
+        return area1 + area2 - overlap_area;
+    }
+};
+
+QUESTION NO:231
+
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if (n <= 0) return false;
+        while (n % 2 == 0) {
+            n /= 2;
+        }
+        return n == 1;
+    }
+};
+
+QUESTION NO:342
+
+class Solution {
+public:
+    bool isPowerOfFour(int n) {
+        if (n <= 0) return false;
+        while (n % 4 == 0) {
+            n /= 4;
+        }
+        return n == 1;
+    }
+};
+
+QUESTION NO:367
+
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        for (long long i = 1; i * i <= num; i++) {
+            if (i * i == num) return true;
+        }
+        return false;
+    }
+};
+
+QUESTION NO:1588
+
+class Solution {
+public:
+    int sumOddLengthSubarrays(vector<int>& arr) {
+        int totalSum = 0;
+        int n = arr.size();
+        
+        // Generate all odd-length subarrays
+        for (int start = 0; start < n; ++start) {
+            for (int length = 1; start + length <= n; length += 2) {
+                // Sum the elements of the subarray
+                for (int i = start; i < start + length; ++i) {
+                    totalSum += arr[i];
+                }
+            }
+        }
+        
+        return totalSum;
+    }
+};
+
+QUESTION NO: 1688
+
+class Solution {
+public:
+    int numberOfMatches(int n) {
+        int matches = 0;
+        while (n > 1) {
+            matches += n / 2;   // Number of matches in this round
+            n = (n + 1) / 2;     // Number of teams for the next round
+        }
+        return matches;
+    }
+};
+
+
+QUESTION NO: 2413
+
+class Solution {
+public:
+    int smallestEvenMultiple(int n) {
+        return (n % 2 == 0) ? n : 2 * n;
+    }
+};
+
+QUESTION NO: 2544
+
+class Solution {
+public:
+    int alternateDigitSum(int n) {
+        string s = to_string(n); // Convert number to string
+        int sum = 0;
+        
+        for (int i = 0; i < s.length(); i++) {
+            int digit = s[i] - '0'; // Convert char to integer
+            if (i % 2 == 0) {
+                sum += digit; // Add for even index
+            } else {
+                sum -= digit; // Subtract for odd index
+            }
+        }
+        
+        return sum;
+    }
+};
+
+QUESTION NO:2652
+
+class Solution {
+public:
+    int sumOfMultiples(int n) {
+        int sum = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i % 3 == 0 || i % 5 == 0 || i % 7 == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+};
+
+QUESTION NO: 2739
+
+class Solution {
+public:
+    int distanceTraveled(int mainTank, int additionalTank) {
+        int distance = 0;
+        
+        while (mainTank >= 5 && additionalTank > 0) {
+            distance += 50;  // 5 liters allow 50 km
+            mainTank -= 5;    // Use 5 liters
+            mainTank += 1;    // Transfer 1 liter from additionalTank
+            additionalTank -= 1;
+        }
+        
+        // Use remaining fuel
+        distance += mainTank * 10;
+        
+        return distance;
+    }
+};
+
+QUESTION NO:3492:: MAXIMUM CONTAINERS ON SHIP
+
+#include <vector>
+#include <algorithm>
+
+class Solution {
+public:
+    int maxContainers(std::vector<int>& weights, int limit) {
+        std::sort(weights.begin(), weights.end());  // Sort weights in ascending order
+        int count = 0, totalWeight = 0;
+        
+        for (int weight : weights) {
+            if (totalWeight + weight <= limit) {
+                totalWeight += weight;
+                count++;
+            } else {
+                break;  // Stop if we exceed the weight limit
+            }
+        }
+        
+        return count;
+    }
+};
+
+QUESTION NO:867
+
+#include <vector>
+
+class Solution {
+public:
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        int m = matrix.size();          
+        int n = matrix[0].size();       
+
+        vector<vector<int>> result(n, vector<int>(m));
+
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                result[j][i] = matrix[i][j];
+            }
+        }
+
+        return result;
+    }
+};
+
+QUESTION NO:
+
+
+QUESTION NO:
+
+
